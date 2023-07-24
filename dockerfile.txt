@@ -1,0 +1,14 @@
+# Use a base image with the necessary build tools for compiling C code
+FROM gcc:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the source code and makefiles to the container
+COPY src/ /app/
+
+# Build the C code using the makefile
+RUN make
+
+# Define the command to run when the Docker container starts
+CMD ["./hello"]
